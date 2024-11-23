@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct node
+{
+    int data;
+    struct node* next;
+};
+
+struct node * list_append(int p, struct node *list){
+ 	struct node * n = malloc(sizeof(struct node));
+    n->data = p;
+    n->next = NULL;
+    
+    if (list == NULL)
+    	return n;
+       
+    struct node *last = list;
+    
+    while (last->next != NULL)
+    	last = last->next;
+    
+    last->next = n;
+    return list;
+    
+}
+
+struct node * list_insert (int p, struct node*list){
+    struct node * n = malloc (sizeof(struct node));
+    n->data = p;
+    
+    
+    n->next = list;
+    return n;    
+
+
+}
+
+void list_print(struct node * list){
+	while (list != NULL){
+    	printf("%d ", list->data);
+        list = list->next;
+	}
+}
+
+int main(void)
+{
+    struct node *head = NULL;
+    head = (list_insert(3, head));
+    head = (list_insert(2, head));
+    head = (list_insert(4, head));
+    head = (list_append(4, head));
+    
+    // printf(head);
+    list_print(head);
+
+
+    return 0;
+}

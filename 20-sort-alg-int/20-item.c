@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include "20-item.h"
+
+/*
+ * return <0, >0, ==0 accoring to whether
+ *   i has smaller, bigger, or same prio as j
+ */
+int itemcmp(itemtype *i, itemtype *j)
+{
+    return *i - *j;
+}
+
+void itemprint(itemtype *i)
+{
+    printf("%d", *i);
+}
